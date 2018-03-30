@@ -1,0 +1,17 @@
+{
+  "name": "project",
+  "description": "My First Project",
+  "main": "index.js",
+  "authors": [
+    "Maryniuk Serhii"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
