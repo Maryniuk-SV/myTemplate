@@ -10,6 +10,8 @@ var gulp           = require('gulp'),
 		pngquant 			 = require('imagemin-pngquant'),
 		cache          = require('gulp-cache'),
 		autoprefixer   = require('gulp-autoprefixer'),
+		pug       	   = require("gulp-pug"),
+		plumber 			 = require('gulp-plumber'),
 		notify         = require("gulp-notify"),      // Виводить помилки при збірці Gulp у вигляді системних повідомлень 
 		spritesmith 	 = require('gulp.spritesmith'); // Підключаемо бібліотеку для генерації спрайтів
 
@@ -36,12 +38,21 @@ gulp.task('common-js', function() {
 gulp.task('js', ['common-js'], function() {
 	return gulp.src([
 		// 'app/libs/jquery/dist/jquery.min.js',
-		// 'app/libs/bootstrap/dist/js/bootstrap.min.js',
 		'app/js/common.min.js', // Завжди в кінці
 		])
 	.pipe(concat('scripts.min.js'))
 	.pipe(uglify()) // Мінімізувати весь js (на вибір)
 	.pipe(gulp.dest('app/js'))
+	.pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('pug', function() {
+	return gulp.src('app/pug/index.pug')
+	.pipe(pug({
+		pretty: true
+	}))
+	.pipe(plumber())
+	.pipe(gulp.dest('app'))
 	.pipe(browserSync.reload({stream: true}));
 });
 

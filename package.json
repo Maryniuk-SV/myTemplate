@@ -19,6 +19,8 @@
     "gulp-imagemin": "^3.3.0",
     "gulp-less": "^3.4.0",
     "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
     "gulp.spritesmith": "^6.9.0",
